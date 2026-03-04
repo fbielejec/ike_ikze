@@ -12,7 +12,8 @@ Upgrade rebalance.py with two changes:
 |---|---|---|---|---|---|
 | US Equities (S&P 500) | CSPX | **SPYL** | IE000XZSV718 | spyl.uk | USD |
 | Emerging Markets | IEMA | **IEMA** | IE00B4L5YC18 | iema.uk | USD |
-| Bonds / Cash | CBU0 + IB01 | **ETFBCASH** | PLBETWT00010 | etfbcash.pl | PLN |
+| Polish Bonds (fixed-rate) | CBU0 | **ETFBTBSP** | PLBTBSP00012 | etfbtbsp.pl | PLN |
+| Cash (floating-rate) | IB01 | **ETFBCASH** | PLBETWT00010 | etfbcash.pl | PLN |
 
 ### Why SPYL over CSPX
 - TER: 0.03% vs 0.07%
@@ -21,12 +22,12 @@ Upgrade rebalance.py with two changes:
 - Unit price ~17 USD vs ~630 USD — minimal idle cash when rebalancing
 - €12B AUM, growing fast
 
-### Why ETFBCASH over CBU0/IB01
-- No USD/PLN currency risk — priced and settled in PLN natively
-- Trades on GPW (same exchange as Bossa IKE/IKZE)
-- Floating-rate Polish gov bonds — very low volatility (52-week range: 143–145 PLN)
-- Replaces two bond ETFs with one simpler option
-- Downside: higher TER (0.40% vs 0.07%), Polish sovereign credit risk
+### Why ETFBTBSP + ETFBCASH over CBU0/IB01
+- No USD/PLN currency risk — both priced and settled in PLN natively
+- Both trade on GPW (same exchange as Bossa IKE/IKZE)
+- **ETFBTBSP** (TBSP, fixed-rate bonds): higher returns (+8.5%/yr), 3.2% volatility, -14.5% max drawdown. Can win momentum signal in rate-cutting cycles.
+- **ETFBCASH** (Obligacji 6M, floating-rate): pure cash parking, 1.1% volatility, -0.4% max drawdown.
+- Downside: higher TER (0.40–0.50% vs 0.07%), Polish sovereign credit risk
 
 ## Architecture ✅
 
@@ -82,9 +83,10 @@ Same logic: sell non-target → buy target with all available PLN → report lef
 ### Ticker mapping (hardcoded)
 ```python
 ETFS = {
-    "SPYL":     {"stooq": "spyl.uk",     "currency": "USD"},
-    "IEMA":     {"stooq": "iema.uk",     "currency": "USD"},
-    "ETFBCASH": {"stooq": "etfbcash.pl", "currency": "PLN"},
+    "SPYL":     {"stooq": "spyl.uk",      "currency": "USD"},
+    "IEMA":     {"stooq": "iema.uk",      "currency": "USD"},
+    "ETFBTBSP": {"stooq": "etfbtbsp.pl",  "currency": "PLN"},
+    "ETFBCASH": {"stooq": "etfbcash.pl",  "currency": "PLN"},
 }
 FX = {"USDPLN": "usdpln"}
 ```

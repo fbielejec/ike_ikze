@@ -8,7 +8,8 @@ to move from the current portfolio state to 100% in the target ETF.
 ETF lineup:
   SPYL     — SPDR S&P 500 UCITS ETF (Acc), IE000XZSV718, USD on LSE
   IEMA     — iShares MSCI EM UCITS ETF (Acc), IE00B4L5YC18, USD on LSE
-  ETFBCASH — Beta ETF Obligacji 6M (Acc), PLBETWT00010, PLN on GPW
+  ETFBTBSP — Beta ETF TBSP (Acc), PLBTBSP00012, PLN on GPW (fixed-rate bonds)
+  ETFBCASH — Beta ETF Obligacji 6M (Acc), PLBETWT00010, PLN on GPW (cash equivalent)
 
 === HOW TO USE ===
 
@@ -65,9 +66,10 @@ from datetime import date, timedelta
 # --- ETF and data configuration ---
 
 ETFS = {
-    "SPYL":     {"stooq": "spyl.uk",     "currency": "USD"},
-    "IEMA":     {"stooq": "iema.uk",     "currency": "USD"},
-    "ETFBCASH": {"stooq": "etfbcash.pl", "currency": "PLN"},
+    "SPYL":     {"stooq": "spyl.uk",      "currency": "USD"},
+    "IEMA":     {"stooq": "iema.uk",      "currency": "USD"},
+    "ETFBTBSP": {"stooq": "etfbtbsp.pl",  "currency": "PLN"},
+    "ETFBCASH": {"stooq": "etfbcash.pl",  "currency": "PLN"},
 }
 FX_TICKER = "usdpln"
 STOOQ_URL = "https://stooq.pl/q/d/l/?s={ticker}&d1={d1}&d2={d2}&i=d"

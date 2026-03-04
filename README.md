@@ -2,7 +2,7 @@
 
 ## Overview
 
-A momentum-based strategy that rotates monthly between 3 ETFs, always holding 100% in a single one. Based on Gary Antonacci's Global Equities Momentum research, adapted for Polish IKE/IKZE retirement accounts on Bossa.pl.
+A momentum-based strategy that rotates monthly between 4 ETFs, always holding 100% in a single one. Based on Gary Antonacci's Global Equities Momentum research, adapted for Polish IKE/IKZE retirement accounts on Bossa.pl.
 
 ## ETFs
 
@@ -10,15 +10,16 @@ A momentum-based strategy that rotates monthly between 3 ETFs, always holding 10
 |---|---|---|---|---|---|---|
 | US Equities (S&P 500) | **SPYL** | SPDR S&P 500 UCITS ETF (Acc) | IE000XZSV718 | 0.03% | USD | LSE |
 | Emerging Markets | **IEMA** | iShares MSCI EM UCITS ETF (Acc) | IE00B4L5YC18 | 0.18% | USD | LSE |
-| Bonds / Cash | **ETFBCASH** | Beta ETF Obligacji 6M (Acc) | PLBETWT00010 | 0.40% | PLN | GPW |
+| Polish Bonds (fixed-rate) | **ETFBTBSP** | Beta ETF TBSP (Acc) | PLBTBSP00012 | 0.50% | PLN | GPW |
+| Cash (floating-rate) | **ETFBCASH** | Beta ETF Obligacji 6M (Acc) | PLBETWT00010 | 0.40% | PLN | GPW |
 
-All three are accumulating (no dividend payouts — reinvested automatically). SPYL and IEMA trade in USD on LSE; ETFBCASH trades in PLN on the Warsaw Stock Exchange (GPW).
+All four are accumulating (no dividend payouts — reinvested automatically). SPYL and IEMA trade in USD on LSE; ETFBTBSP and ETFBCASH trade in PLN on the Warsaw Stock Exchange (GPW).
 
 ### Why these ETFs
 
 **SPYL over CSPX (iShares S&P 500)**: Lower TER (0.03% vs 0.07%), best-in-class tracking difference (-0.20%), physical replication, and ~17 USD unit price (vs ~630 USD for CSPX) which minimizes idle cash when rebalancing. Launched Oct 2023, €12B AUM.
 
-**ETFBCASH over CBU0/IB01 (US Treasury bonds)**: Eliminates USD/PLN currency risk — priced and settled in PLN natively. Tracks GPWB-BWZ index (Polish government floating-rate bonds, 6m+ maturity). Very low volatility, acts as cash equivalent. Trades on GPW alongside the Bossa IKE/IKZE account. Replaces two US bond ETFs with a single simpler option.
+**ETFBTBSP and ETFBCASH over CBU0/IB01 (US Treasury bonds)**: Both eliminate USD/PLN currency risk — priced and settled in PLN natively. ETFBTBSP tracks the TBSP index (fixed-rate Polish government bonds) with higher returns (+8.5%/yr) but meaningful volatility (3.2% annualized, -14.5% max drawdown) — it can win the momentum signal in rate-cutting cycles. ETFBCASH tracks GPWB-BWZ (floating-rate bonds, 6m+ maturity) with near-zero volatility (1.1% annualized, -0.4% max drawdown) — acts as pure cash parking. Both trade on GPW alongside the Bossa IKE/IKZE account.
 
 ## Monthly Decision Rules
 
@@ -36,7 +37,7 @@ That's it. One check per month, one possible trade.
 ## Why This Works (Momentum Logic)
 
 - **Relative momentum**: Picks the strongest-performing asset class over the trailing 12 months
-- **Absolute momentum**: The bond ETF (ETFBCASH) acts as a safe haven — if stocks underperform bonds, the strategy exits equities
+- **Absolute momentum**: The bond ETFs (ETFBTBSP, ETFBCASH) act as safe havens — if stocks underperform bonds, the strategy exits equities
 - **Skipping the most recent month**: Research shows the last month introduces noise/mean-reversion; excluding it improves signal quality
 - Backed by Antonacci's research showing 17.4% CAGR vs 12.3% for S&P 500 over a 43-year backtest
 
@@ -45,7 +46,7 @@ That's it. One check per month, one possible trade.
 - **Account type**: IKE or IKZE (tax-sheltered retirement accounts)
 - **Commission**: 0% on all ETFs within IKE/IKZE (promo through Feb 28, 2027)
 - **Standard commission** (if promo expires): 0.29% min 14 PLN for foreign ETFs
-- **FX**: Convert PLN → USD via walutomat or similar for SPYL/IEMA trades; ETFBCASH trades directly in PLN
+- **FX**: Convert PLN → USD via walutomat or similar for SPYL/IEMA trades; ETFBTBSP and ETFBCASH trade directly in PLN
 
 ## Differences from Original GEM
 
@@ -53,7 +54,7 @@ That's it. One check per month, one possible trade.
 |---|---|---|
 | US equities | S&P 500 | S&P 500 (SPYL) — same index, lowest-cost UCITS ETF |
 | International equities | MSCI ACWI ex-US | MSCI Emerging Markets (IEMA) — narrower, higher beta |
-| Bonds | US Aggregate Bond (single ETF) | Polish floating-rate gov bonds (ETFBCASH) — no FX risk |
+| Bonds | US Aggregate Bond (single ETF) | Polish gov bonds: ETFBTBSP (fixed-rate) + ETFBCASH (floating-rate) — no FX risk |
 | Momentum check | Manual chart comparison | Automated script fetching data from Stooq, comparing in PLN |
 | Rebalancing | Monthly | Monthly — same |
 
@@ -65,7 +66,7 @@ The YouTube channel author uses a more aggressive variant:
 |---|---|---|
 | US equities | CNDX (NASDAQ 100) | SPYL (S&P 500) — broader, less tech-concentrated |
 | Emerging Markets | EIMI (EM IMI, inc. small caps) | IEMA (EM standard, large+mid cap only) |
-| Bonds | CBU0 + IB01 (US Treasuries) | ETFBCASH (Polish gov bonds) — no USD/PLN risk |
+| Bonds | CBU0 + IB01 (US Treasuries) | ETFBTBSP + ETFBCASH (Polish gov bonds) — no USD/PLN risk |
 | Broker | XTB | Bossa.pl |
 
 ## Key Behavioral Rules
