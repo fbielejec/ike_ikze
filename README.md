@@ -15,7 +15,7 @@ A momentum-based strategy that rotates monthly between 4 ETFs, always holding 10
 
 All four are accumulating (no dividend payouts — reinvested automatically). SPYL and IEMA trade in USD on LSE; ETFBTBSP and ETFBCASH trade in PLN on the Warsaw Stock Exchange (GPW).
 
-> NOTE: You can visually compare the momentum on https://atlasetf.pl/etf-comparison
+> NOTE: You can visually compare the returns (momentum) on https://atlasetf.pl/etf-comparison
 
 ### Why these ETFs
 
