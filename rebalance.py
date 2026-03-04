@@ -53,10 +53,125 @@ Examples:
 """
 
 import argparse
+import csv
+import io
 import math
 import sys
-from datetime import date
+import urllib.request
+import urllib.error
+from datetime import date, timedelta
 
+
+# --- ETF and data configuration ---
+
+ETFS = {
+    "SPYL":     {"stooq": "spyl.uk",     "currency": "USD"},
+    "IEMA":     {"stooq": "iema.uk",     "currency": "USD"},
+    "ETFBCASH": {"stooq": "etfbcash.pl", "currency": "PLN"},
+}
+FX_TICKER = "usdpln"
+STOOQ_URL = "https://stooq.pl/q/d/l/?s={ticker}&d1={d1}&d2={d2}&i=d"
+
+
+# --- Stooq data fetching ---
+
+def fetch_stooq_csv(ticker, d1, d2):
+    """Fetch daily close prices from Stooq. Returns list of (date_str, close)."""
+    url = STOOQ_URL.format(
+        ticker=ticker,
+        d1=d1.strftime("%Y%m%d"),
+        d2=d2.strftime("%Y%m%d"),
+    )
+    try:
+        with urllib.request.urlopen(url, timeout=15) as resp:
+            raw = resp.read().decode("utf-8")
+    except (urllib.error.URLError, OSError) as e:
+        print(f"Error: Could not fetch data from Stooq for '{ticker}': {e}", file=sys.stderr)
+        sys.exit(1)
+
+    if not raw.strip() or raw.strip() == "Brak danych":
+        print(
+            f"Error: No price data returned for '{ticker}'. "
+            f"The ticker may be delisted or Stooq may be temporarily unavailable.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    rows = []
+    reader = csv.DictReader(io.StringIO(raw))
+    for row in reader:
+        rows.append((row["Data"], float(row["Zamkniecie"])))
+    rows.sort(key=lambda r: r[0])
+    return rows
+
+
+def lookback_window(today):
+    """Return (start_date, end_date) for the 12-month lookback, skipping current month."""
+    # End = last day of previous month
+    first_of_month = today.replace(day=1)
+    end = first_of_month - timedelta(days=1)
+    # Start = first day of the month 12 months before end's month
+    start_year = end.year - 1
+    start_month = end.month
+    start = date(start_year, start_month, 1)
+    return start, end
+
+
+# --- Signal command ---
+
+def cmd_signal(args):
+    today = date.today()
+    start, end = lookback_window(today)
+
+    # Fetch USD/PLN rates
+    fx_data = fetch_stooq_csv(FX_TICKER, start, end)
+    fx_by_date = {d: rate for d, rate in fx_data}
+
+    results = []
+    for name, info in ETFS.items():
+        prices = fetch_stooq_csv(info["stooq"], start, end)
+
+        if info["currency"] == "USD":
+            # Convert to PLN
+            pln_prices = []
+            for d, close in prices:
+                if d in fx_by_date:
+                    pln_prices.append((d, close * fx_by_date[d]))
+            prices = pln_prices
+
+        if len(prices) < 2:
+            print(f"Warning: Insufficient data for {name}, skipping.", file=sys.stderr)
+            continue
+
+        first_close = prices[0][1]
+        last_close = prices[-1][1]
+        ret = (last_close - first_close) / first_close * 100
+        results.append((name, ret, prices[0][0], prices[-1][0]))
+
+    if not results:
+        print("Error: No valid data for any ETF.", file=sys.stderr)
+        sys.exit(1)
+
+    results.sort(key=lambda r: r[1], reverse=True)
+    winner = results[0][0]
+
+    # Use actual date range from data
+    actual_start = min(r[2] for r in results)
+    actual_end = max(r[3] for r in results)
+    current_month = today.strftime("%b %Y")
+
+    print(f"\n=== GEM MOMENTUM SIGNAL ===")
+    print(f"Date: {today}")
+    print(f"Lookback: {actual_start} to {actual_end} (skip {current_month})")
+    print()
+    for i, (name, ret, _, _) in enumerate(results, 1):
+        marker = "  <- WINNER" if i == 1 else ""
+        print(f"  #{i}  {name:<10} {ret:+.1f}%  (PLN){marker}")
+    print(f"\nTarget ETF: {winner}")
+    print()
+
+
+# --- Rebalance command ---
 
 def parse_holding(s):
     """Parse 'NAME:UNITS:PRICE_PLN' into (name, units, price)."""
@@ -86,41 +201,10 @@ def fmt(amount):
     return f"{amount:,.2f}"
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description="GEM rebalancing calculator for Bossa.pl IKE/IKZE (PLN)"
-    )
-    parser.add_argument(
-        "--target",
-        required=True,
-        help="Target ETF ticker (e.g. SPYL, IEMA, ETFBCASH)",
-    )
-    parser.add_argument(
-        "--cash",
-        type=float,
-        default=0.0,
-        help="PLN cash balance on the account",
-    )
-    parser.add_argument(
-        "--holding",
-        type=parse_holding,
-        action="append",
-        default=[],
-        metavar="NAME:UNITS:PRICE_PLN",
-        help="Current position (repeatable). Example: --holding SPYL:350:67.50",
-    )
-    parser.add_argument(
-        "--target-price",
-        type=float,
-        default=None,
-        metavar="PRICE_PLN",
-        help="Current PLN price per unit of the target ETF (required if target not in holdings)",
-    )
-
-    args = parser.parse_args()
+def cmd_rebalance(args):
     target = args.target.upper()
     cash = args.cash
-    holdings = args.holding  # list of (name, units, price)
+    holdings = args.holding or []
     target_price = args.target_price
 
     # Find target price from holdings if not provided
@@ -145,7 +229,6 @@ def main():
     # Determine sells (everything not target) and existing target units
     sells = []
     existing_target_units = 0
-    existing_target_price = target_price
     sell_proceeds = 0.0
 
     for name, units, price in holdings:
@@ -154,7 +237,6 @@ def main():
             sell_proceeds += units * price
         else:
             existing_target_units = units
-            existing_target_price = price
 
     # Calculate buys
     available_cash = cash + sell_proceeds
@@ -198,6 +280,60 @@ def main():
     print(f"  Total:         {fmt(final_total)} PLN")
     print(f"  Idle cash:     {idle_pct:.1f}% of portfolio")
     print()
+
+
+# --- CLI ---
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="GEM momentum signal & rebalancing calculator for Bossa.pl IKE/IKZE (PLN)"
+    )
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    # signal
+    subparsers.add_parser(
+        "signal",
+        help="Fetch 12-month price data and show momentum winner",
+    )
+
+    # rebalance
+    rebal = subparsers.add_parser(
+        "rebalance",
+        help="Calculate sell/buy transactions to rebalance into target ETF",
+    )
+    rebal.add_argument(
+        "--target",
+        required=True,
+        help="Target ETF ticker (e.g. SPYL, IEMA, ETFBCASH)",
+    )
+    rebal.add_argument(
+        "--cash",
+        type=float,
+        default=0.0,
+        help="PLN cash balance on the account",
+    )
+    rebal.add_argument(
+        "--holding",
+        type=parse_holding,
+        action="append",
+        default=None,
+        metavar="NAME:UNITS:PRICE_PLN",
+        help="Current position (repeatable). Example: --holding SPYL:350:67.50",
+    )
+    rebal.add_argument(
+        "--target-price",
+        type=float,
+        default=None,
+        metavar="PRICE_PLN",
+        help="Current PLN price per unit of the target ETF (required if target not in holdings)",
+    )
+
+    args = parser.parse_args()
+
+    if args.command == "signal":
+        cmd_signal(args)
+    elif args.command == "rebalance":
+        cmd_rebalance(args)
 
 
 if __name__ == "__main__":

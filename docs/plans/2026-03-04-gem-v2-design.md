@@ -3,8 +3,8 @@
 ## Summary
 
 Upgrade rebalance.py with two changes:
-1. New `signal` subcommand that fetches 12-month price data from Stooq and calculates momentum in PLN terms
-2. Updated ETF lineup: SPYL (S&P 500), IEMA (EM), ETFBCASH (Polish bonds)
+1. ✅ New `signal` subcommand that fetches 12-month price data from Stooq and calculates momentum in PLN terms
+2. ✅ Updated ETF lineup: SPYL (S&P 500), IEMA (EM), ETFBCASH (Polish bonds)
 
 ## ETF Lineup
 
@@ -28,7 +28,7 @@ Upgrade rebalance.py with two changes:
 - Replaces two bond ETFs with one simpler option
 - Downside: higher TER (0.40% vs 0.07%), Polish sovereign credit risk
 
-## Architecture
+## Architecture ✅
 
 Single file `rebalance.py` with two subcommands via argparse subparsers:
 
@@ -39,7 +39,7 @@ python rebalance.py rebalance --target ... --cash ... --holding ...  # calculate
 
 No external dependencies — pure Python stdlib (urllib, csv, argparse).
 
-## `signal` subcommand
+## `signal` subcommand ✅
 
 ### Behavior
 1. Determine 12-month lookback window, skipping current month
@@ -65,7 +65,7 @@ Target ETF: SPYL
 
 ### No arguments needed — fully automatic date/data logic.
 
-## `rebalance` subcommand
+## `rebalance` subcommand ✅
 
 Unchanged API from current script:
 ```
@@ -77,7 +77,7 @@ Same logic: sell non-target → buy target with all available PLN → report lef
 ### Future enhancement (not in scope)
 `rebalance` without `--target` could run `signal` internally and use the winner automatically.
 
-## Stooq integration
+## Stooq integration ✅
 
 ### Ticker mapping (hardcoded)
 ```python
@@ -101,13 +101,13 @@ FX = {"USDPLN": "usdpln"}
 - **Missing USD/PLN for a day**: skip that day when converting
 - **< 200 trading days available**: warning, still calculate with available data
 
-## Error handling
+## Error handling ✅
 
 - Network failure → clear error naming the ticker
 - Empty/invalid CSV → clear error suggesting Stooq may be down
 - Insufficient data → warning but proceed
 - No verbose/debug flags — keep it simple
 
-## Documentation updates
+## Documentation updates ✅
 
 Update GEM_STRATEGY.md to reflect new ETF lineup after implementation.
