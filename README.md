@@ -15,6 +15,8 @@ A momentum-based strategy that rotates monthly between 4 ETFs, always holding 10
 
 All four are accumulating (no dividend payouts — reinvested automatically). SPYL and IEMA trade in USD on LSE; ETFBTBSP and ETFBCASH trade in PLN on the Warsaw Stock Exchange (GPW).
 
+> NOTE: You can visually compare the momentum on https://atlasetf.pl/etf-comparison
+
 ### Why these ETFs
 
 **SPYL over CSPX (iShares S&P 500)**: Lower TER (0.03% vs 0.07%), best-in-class tracking difference (-0.20%), physical replication, and ~17 USD unit price (vs ~630 USD for CSPX) which minimizes idle cash when rebalancing. Launched Oct 2023, €12B AUM.
