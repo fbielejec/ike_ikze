@@ -84,4 +84,4 @@ The YouTube channel author uses a more aggressive variant:
 - [GEM Executive Summary — ReSolve](https://investresolve.com/global-equity-momentum-executive-summary/)
 - [Bossa.pl IKE/IKZE ETF offer](https://bossa.pl/oferta/rynek-zagraniczny/kid)
 - [Bossa 0% commission promo](https://bossa.pl/o-nas/aktualnosci/2025/0-prowizji-na-etf-etp-etn-etc-na-ike-i-ikze-do-konca-lutego-2026-r)
-- [ZAwod Inwestor GEM strategy series](https://www.youtube.com/watch?v=FcLnhY2CqPU&list=PLYmBCT7NufbqaYEjh6ElRK7WDQGEnNl14) (Polish) - transcripts in this directory
+- [ZAwod Inwestor GEM strategy series](https://www.youtube.com/watch?v=FcLnhY2CqPU&list=PLYmBCT7NufbqaYEjh6ElRK7WDQGEnNl14) (Polish)
