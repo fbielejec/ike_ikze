@@ -1,0 +1,59 @@
+# GEM Strategy - YouTube Transcript
+
+**Source:** https://www.youtube.com/watch?v=8nyOLt912cg
+**Language:** Polish (auto-generated captions)
+
+---
+
+Kiedy zaczynałem serię o strategii Global Equity Momentum, spodziewałem się raczej dosyć nudnych, powtarzalnych odcinków. Wiedziałem, że będą się trochę gorzej klikać, no i raczej nie będzie tu fajerwerków. Zupełnie nie spodziewałem się, że po 10 miesiącach tak mi się to spodoba fundamentalnie i zacznę coraz mocniej uważać, że ta strategia znacząco pokona indeks S&P 500. No i dla polskiego inwestora będzie dużo lepsze niż samodzielne wybieranie amerykańskich czy globalnych spółek czy bazowanie na czyichś predykcjach, co postaram się w tym odcinku uzasadnić i ten wątek będzie bardzo ciekawy. Będzie tu sporo odważnych i może trochę kontrowersyjnych opinii, z którymi macie pełne prawo się nie zgodzić. Później oczywiście omówię samą strategię i wyniki, a wszystko będzie naturalnie łączyć się w jedną spójną całość. Może jeszcze tylko słowo o aktualnej sytuacji rynkowej, bo pewnie trochę osób się martwi. Myślę, że to jest zwykła zdrowa korekta. Trudno dziś znaleźć racjonalne dane, które miałyby świadczyć o jakiejś nadchodzącej głębokiej besie. Hipotetyczny spadek indeksów o 20% spowoduje, że biorąc pod uwagę prognozy zysków na 26 i 27 rok zrobi się dosyć atrakcyjnie, a spadek indeksów o 20% w Polsce spowodowałby, że znów będzie po prostu bardzo tanio. Zanim zacznę to jeszcze wielka prośba o subskrypcję, łapy w górę, komentarze i oglądanie do końca. Pomaga mi to dotrzeć z wiedzą i wydaje mi się dosyć racjonalną rynkową narracją do nowych osób. Od razu też wspomnę, że do prowadzenia strategii Global Equity Momentum korzystam z kontab. To jest partner tego kanału, ale i w tym przypadku jest to po prostu sensowne miejsce, bo na subkoncie dolarowym nie płacę żadnej prowizji za kupno i sprzedaż ETFów potrzebnych do prowadzenia strategii. Złote wymieniam w walutomacie na dolary, a następnie zwykłym przelewem wpłacam na subkonto dolarowe w XTB. W taki sposób mam właśnie tanio wymienioną walutę i spoko warunki do zakupów, aby nie ponosić niepotrzebnych kosztów. Wszystkie potrzebne linki jak zwykle są w opisie. Wielkie dzięki za każdą najdrobniejszą formę wsparcia i zaczynamy.
+
+Podstawą, od której chciałbym wyjść będzie stwierdzenie, że legendarni inwestorzy jak Warren Buffett, od których wszyscy się uczymy w ciągu swojej kariery inwestycyjnej mieli do czynienia, oczywiście tak w dużym uproszczeniu, ale tylko z jedną wielką zmianą paradygmatu związaną z upowszechnieniem się internetu i całej infrastruktury oraz oprogramowania wokół tej sieci. Powiedzmy, że przed internetem w inwestowaniu panowały w miarę jasne zasady. Działania na atomach mają swoje ograniczenia. Żeby zwiększyć sprzedaż, trzeba budować nowe fabryki i zatrudniać nowych ludzi. Kiedy nadeszła era działania na bitach, trzeba było w pewnym momencie zrozumieć, że najbardziej zyskowne inwestowanie nie powinno opierać się na wycenianiu majątku firmy, a już na dyskontowaniu jej potencjału do rozwoju. Nastały czasy, gdzie firma z kilkoma komputerami i utalentowanymi ludźmi w zespole mogła stać się globalnym gigantem, bo przestało ograniczać się to metaforyczne przenoszenie atomów.
+
+No i większość inwestorów, niektórzy szybciej, niektórzy później, zrozumieli tę zmianę paradygmatu. Przypomnę, że paradygmat to taki zespół przekonań, jaki mamy ogólnie o świecie czy na dany temat. Na przykład zmianą paradygmatu było opublikowanie teorii względności Einsteina. No i od czasu powszechnienia się internetu na kolejną już chyba niezaprzeczalną rewolucję przyszło nam czekać no dosyć krótko, bo tylko 20 kilka lat. Do tej pory wydawało się, że zupełnie nic nie jest w stanie zagrozić firmom produkującym zaawansowane oprogramowanie. Firma Adobe, która w czasie początków mojego inwestowania była wymieniana wśród grona takich, wiecie absolutnych pewniaków, jeżeli chodzi o rozwój na lata i pewne powtarzalne rosnące przychody. No ona jest dziś o 50% od szczytu. W związku tylko z obawami, że sztuczna inteligencja po prostu zastąpi dużą część z płatnego oprogramowania firmy. W sumie to już się to trochę dzieje.
+
+Na tym wykresie widzicie jak szybko od 2024 roku kapitał odpłynął z firm produkujących oprogramowanie do spółek związanych z projektowaniem i produkcją półprzewodników, które są kluczowe w budowaniu centrów danych pod sztuczną inteligencję i trenowanie tych modeli. No i teraz sytuacja wygląda tak, że inwestorzy, którzy od lat mogli spokojnie zarabiać w firmach produkujących oprogramowanie, mają zagwozdkę, no bo mamy wyraźny trend traktowania tych spółek z pewnym dystansem. Ja raczej dzisiaj uważam, że to po prostu wycenianie ryzyka, które się pojawiło, a którego do tej pory nie było na horyzoncie, a nie moment, wiecie, ogłoszenia zmierzchu produkcji, oprogramowania czy gier. Chciałem zwrócić jednak uwagę na to, że nasz umysł kompletnie nie jest w stanie przetworzyć tego, jak w rzeczywistości wygląda wzrost wykładniczy i jak kompletnie nie jesteśmy w stanie przewidzieć, w jakim świecie technologicznym obudzimy się za trzy do piciu lat.
+
+Żeby to zobrazować, posłużę się metaforą, którą kiedyś usłyszałem na kanale Kuby Klawitera, a która bardzo mi się w tym kontekście spodobała. Wyobraź sobie, że jesteś właścicielem stawu, jeziorka czy czegoś tam. No i wszystko jest spoko, dopóki pewnego dnia ptak nie przynosi kawałka rzęsy wodnej nad twoim jeziorkiem, który się tam zaplątał w jego pióra. rzęsa wodna spada do tej wody i po 25 dniach przychodzisz na to jeziorko. No i widzisz, że no na 3% tak na oko jeziora jest ta rzęsa, ale nie zwracasz na to specjalnej uwagi. Idziesz do domu grać w CS-a nieświadomy tego, że od 25 dni trwał wykładniczy wzrost tej rośliny. 26 dnia rzęsa pokryje 6,25% zbiornika, 27 12,5%, 28% zbiornika, 29 50% no i 30 dnia całe jeziorko zostanie pokryte i w tym tempie 31 zabierze ci dom i żonę.
+
+No i 25 dni zajęło ukazanie 3% wewnętrznego potencjału, a kolejne 5 dni to pozostałe 97%. Trudno po dwóch latach nie odnieść wrażenia, że sztuczna inteligencja podąża właśnie takim torem. Dążę do tego, że w takich warunkach inwestowanie w technologię, wybierając pojedyncze spółki z zamiarem popicia benchmarku, jakim w tym przypadku jest indeks NAS, tak oczywiście, staje się zadaniem no z góry skazanym po prostu na porażkę w długim terminie, a jednocześnie no jakąś ekspozycję na technologię warto mieć. U mnie dziś coraz wyraźniej kształtuje się ten pogląd, który kilkukrotnie już zaznaczałem, że świadomy stock picking i praca analityczna ma na pewno sens w Polsce. Tego jestem pewien. Gdzie rywalizujemy w tych mniejszych spółkach w jakimś gronie delikatnie większym niż spotkanie Meneli pod dużym sklepem osiedlowym i faktycznie człowiek jest w stanie wypracować jakąś przewagę. Inwestując w globalną technologię raczej sam będę trzymał się ETFów.
+
+Co ciekawe, ja niemal od początku inwestowania lubiłem śledzić różne publiczne portfele i sprawdzać, czy mądro brzmiące wypowiedzi o giełdzie przekładają się na wyniki. No i ku mojemu zaskoczeniu muszę dzisiaj powiedzieć, że faktycznie jest sporo portfeli polskich inwestorów, którzy już w takim znaczącym horyzoncie 6 do 12 lat zrobili wyniki rzędu 20 30 kilku procent średniorocznie, a jednocześnie o dziwo nie znalazłem żadnego, w którym polski inwestor dzieliłby się tak transparentnie. tak dobrymi wynikami inwestując globalnie, mimo że wiecie w Ameryce trwała no dużo mocniejsza hossa, większość takich portfeli publicznych to wynik znacząco poniżej S&P 500 lub zbliżony do tego indeksu przy dużo większej zmienności. Oczywiście wiecie, takie wybieranie spółek cały czas ma bardzo dużą wartość rozwojową i też po prostu jest bardzo fajnym hobby, ale sam chcę już zmierzać w stronę skuteczności, no i też czuję pewną odpowiedzialność po prostu prowadząc ten kanał.
+
+## GEM Strategy Rules
+
+Jak to o czym mówiłem łączy się z Global Equity Momentum. Otóż ta strategia w styczniu przeszła do świetnie radzącego sobie indeksu Emerging Markets i od początku roku powiększa swoją przewagę nad S&P 500 i nad Takiem. Ja tu nie zadaję żadnych pytań. Nad niczym się nie zastanawiam. Nie zakochuję się w żadnym ETFie czy spółce. W świetle tego co powiedziałem w takim dosyć skoncentrowanym technologicznym portfelu wystarczy wybrać trochę gorzej. Nie potrafić przyznać się do błędów w ocenie jakiejś spółki. Nie mówiąc już o tym, że prowadząc portfel pojedynczych spółek, no nie oszukujmy się, nie ma szans przeskakiwać między Nazdakiem a rynkami wschodzącymi, tak jak to beemocjonalnie i bez żadnych puławek myślenia zrobi strategia GEM.
+
+No to strategia ciągle daje mi ogromną ekspozycję na technologię, a jednocześnie ogranicza trochę zmienność. Nie oszukujmy się, że bardzo trudno jest wycenić, czy dokładnie zrozumieć takie wielkie korporacje z mocno rozgałęzionym biznesem sprzedające swoje produkty czy usługi na cały świat. Warto oczywiście mieć na nie ekspozycję, bo w USA są po prostu najlepsze firmy na świecie. To jest niepodważalne, ale zadaję takie otwarte pytanie, gdzie te moją opinię już coraz bardziej potwierdzają konkretne obserwacje i wyniki. Czy na pewno masz na tym rynku jakąś przewagę?
+
+Szybko przypomnę na czym to Gem polega i omówimy wyniki. To już tak w skrócie, jeżeli chcecie lepiej zrozumieć to polecam poprzednie odcinki z playlisty. Tam zobaczycie po kolejek do tego podejścia dochodziłem.
+
+**Co miesiąc porównuj ze sobą cztery ETFy:**
+1. Jeden to technologiczny NASDAQ
+2. Drugi to ETF na rynki rozwijające się (Emerging Markets)
+3. Trzeci na obligacje długoterminowe USA
+4. Czwarty na obligacje krótkoterminowe USA
+
+Siła rynku akcji sprawia, że przez większość czasu będziemy przeskakiwać oczywiście między tymi dwoma akcyjnymi ETFami.
+
+**Jak sprawdzać (na stronie stockcharts.com, zakładka Masterchart):**
+- Wklepuję cztery ETFy
+- Klikam procent i wybieram datę, która jest 12-miesięcznym okienkiem, ale cofniętym o jeden miesiąc
+- Przykład: jeżeli dokonuję porównania 1 lutego 2026, to całkowicie omijam styczeń 2026. Okienko to dokładnie cały 2025 rok (1 stycznia 25 do 31 grudnia 25)
+
+Badania tej strategii sugerują, że tak zastosowane okienko daje istotne prawdopodobieństwo, że miesiąc, w którym sprawdzamy, będzie kontynuował trend wzrostowy.
+
+## Modyfikacja autora vs oryginał
+
+Warto wiedzieć, że oryginał strategii zakładał raczej ETFy akcyjne, bardziej w stylu S&P 500 i cały świat bez Ameryki, albo MSCI World na rynki rozwinięte i MSCI Emerging Markets na rynki wschodzące. Autor celowo uczynił strategię bardziej agresywną (NASDAQ zamiast S&P 500), bo dosyć defensywne podmioty już ma na GPW i zależało mu na dużej ekspozycji na technologię.
+
+## Wyniki (po 10 miesiącach)
+
+- 1 lutego 2026: mocno wygrywał ETF EIMI na rynki wschodzące (o 12pp nad Nasdaqiem)
+- Strategia złapała cały ubiegłoroczny wzrost na Nasdaku
+- 1 stycznia 2026 przeszła z powrotem do Emerging Markets, łapiąc mocny początek roku rynków wschodzących
+- 34,5% stopy zwrotu w dolarze w 10 miesięcy
+- Łącznie wygenerowano 4850 USD zysku
+- Wpłacono do projektu ponad 50 000 USD, wartość: ponad 55 000 USD
+- Strategia zakłada trzymanie tylko jednego ETF jednocześnie (100% kapitału)
+
+No i dobrze się przy tym bawić i uczyć. Ale jednak priorytetem zaczyna być teraz skuteczność. Dziś myślę, że to po prostu dosyć racjonalne podejście, a gdzieś tam w przyszłości czeka mnie jeszcze trudna decyzja, czy i ile kapitału ze zrealizowanych zysków na GPW przenieść chociażby do tej strategii GEM. Bo jeszcze raz przypominam, to co mówiłem nie oznacza, że polska giełda będzie się zawsze zachowywać lepiej. Te warunki prędzej czy później się odwrócą. Moje słowa dotyczyły bardziej sposobu ekspozycji na zagranicę, a nie tego, że to jest jakiś zły rynek. Oczywiście cały czas pamiętajcie, że w 100% pasywna ETF-owa strategia też jest super wyborem i ta słabość rynku USA prędzej czy później minia.
