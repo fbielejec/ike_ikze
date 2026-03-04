@@ -5,17 +5,20 @@ GEM (Global Equities Momentum) Rebalancing Script for Bossa.pl IKE/IKZE
 All values are in PLN. The script calculates exact sell/buy transactions
 to move from the current portfolio state to 100% in the target ETF.
 
+ETF lineup:
+  SPYL     — SPDR S&P 500 UCITS ETF (Acc), IE000XZSV718, USD on LSE
+  IEMA     — iShares MSCI EM UCITS ETF (Acc), IE00B4L5YC18, USD on LSE
+  ETFBCASH — Beta ETF Obligacji 6M (Acc), PLBETWT00010, PLN on GPW
+
 === HOW TO USE ===
 
 Step 1: Determine the momentum winner (which ETF to hold)
-  - Go to https://stockcharts.com → Free Charts → PerfCharts
-  - Enter tickers: CSPX, IEMA, CBU0, IB01
-  - Switch to percentage (%) view
-  - Set date range: 12-month window ending at the last day of the month
-    BEFORE the current month
+  - Run: python rebalance.py signal
+  - The script fetches 12-month price data from Stooq, converts
+    everything to PLN, and shows which ETF had the highest return
+  - The lookback window is 12 months ending at the last day of the
+    month BEFORE the current month (current month is skipped)
     e.g. on 1 March 2026 → range is 1 Feb 2025 to 28 Feb 2026
-  - The ETF with the highest % return in that window is the target
-  - Pass it to the script via --target
 
 Step 2: Gather portfolio state from Bossa.pl
   - Log into https://trader.bossa.pl/
@@ -27,22 +30,26 @@ Step 2: Gather portfolio state from Bossa.pl
   - Pass holdings via --holding NAME:UNITS:PRICE_PLN
   - Pass cash via --cash (PLN)
 
-Step 3: Run the script and execute
+Step 3: Run the rebalance and execute
+  - Run: python rebalance.py rebalance --target <WINNER> ...
   - The script outputs the exact sell/buy orders with PLN amounts
   - Execute the trades manually in the Bossa trader interface
 
 Examples:
-  # Switch from IEMA to CSPX
-  python rebalance.py --target CSPX --target-price 2225.90 --cash 1200 --holding IEMA:120:185.50
+  # Check momentum signal
+  python rebalance.py signal
+
+  # Switch from IEMA to SPYL
+  python rebalance.py rebalance --target SPYL --target-price 67.50 --cash 1200 --holding IEMA:120:185.50
 
   # Fresh start, cash only
-  python rebalance.py --target CSPX --target-price 2225.90 --cash 50000
+  python rebalance.py rebalance --target SPYL --target-price 67.50 --cash 50000
 
   # Already in target, extra cash available
-  python rebalance.py --target CSPX --cash 4500 --holding CSPX:26:2225.90
+  python rebalance.py rebalance --target SPYL --cash 4500 --holding SPYL:350:67.50
 
   # Already in target, no extra cash
-  python rebalance.py --target CSPX --cash 100 --holding CSPX:26:2225.90
+  python rebalance.py rebalance --target SPYL --cash 100 --holding SPYL:350:67.50
 """
 
 import argparse
@@ -86,7 +93,7 @@ def main():
     parser.add_argument(
         "--target",
         required=True,
-        help="Target ETF ticker (e.g. CSPX, IEMA, CBU0, IB01)",
+        help="Target ETF ticker (e.g. SPYL, IEMA, ETFBCASH)",
     )
     parser.add_argument(
         "--cash",
@@ -100,7 +107,7 @@ def main():
         action="append",
         default=[],
         metavar="NAME:UNITS:PRICE_PLN",
-        help="Current position (repeatable). Example: --holding CSPX:26:2225.90",
+        help="Current position (repeatable). Example: --holding SPYL:350:67.50",
     )
     parser.add_argument(
         "--target-price",
