@@ -62,7 +62,6 @@ import urllib.request
 import urllib.error
 from datetime import date, timedelta
 
-
 # --- ETF and data configuration ---
 
 ETFS = {
