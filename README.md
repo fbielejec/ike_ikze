@@ -71,6 +71,25 @@ The YouTube channel author uses a more aggressive variant:
 | Bonds | CBU0 + IB01 (US Treasuries) | ETFBTBSP + ETFBCASH (Polish gov bonds) — no USD/PLN risk |
 | Broker | XTB | Bossa.pl |
 
+## Calendar Reminders
+
+Generate an ICS file with monthly rebalance reminders for Proton Calendar (or any calendar app):
+
+```bash
+# Default: from next month until 12 months from now
+python reminders.py
+
+# Custom date range
+python reminders.py --start 2026-06 --end 2028-12
+
+# Custom output file
+python reminders.py -o my-reminders.ics
+```
+
+Each reminder is an all-day event on the first trading day of the month (accounting for weekends and GPW holidays). Events include 5 daily alarms (day 0 through day 4) so missed checks keep nagging you.
+
+Import the generated `.ics` file via Proton Calendar: Settings > Import calendar.
+
 ## Key Behavioral Rules
 
 - **No discretion**: Follow the numbers mechanically. Do not skip months or override the signal.
